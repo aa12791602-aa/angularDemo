@@ -10,6 +10,8 @@ import { PipesDemoComponent } from "./component/pipes-demo/pipes-demo.component"
 import { SexPipe } from "./pipe/SexPipe";
 import { DecimalLinkPipe } from "./pipe/DecimalLinkPipe";
 import { PureDataTransform } from "./pipe/PurePipeTransform";
+import { DirectiveDemoComponent } from "./component/directive-demo/directive-demo.component";
+import { ColorDirective } from "./directive/ColorDirective";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { PureDataTransform } from "./pipe/PurePipeTransform";
     PipesDemoComponent,
     SexPipe,
     DecimalLinkPipe,
-    PureDataTransform
+    PureDataTransform,
+    DirectiveDemoComponent,
+    ColorDirective
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

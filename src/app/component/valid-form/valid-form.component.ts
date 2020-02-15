@@ -33,4 +33,7 @@ export class ValidFormComponent implements OnInit {
   doLogin(data) {
     console.log(data);
   }
+  callMe = function() {
+    console.log("call me ....");
+  };
 }

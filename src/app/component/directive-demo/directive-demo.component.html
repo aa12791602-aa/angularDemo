@@ -1,0 +1,25 @@
+<div>
+    自定义属性指令
+</div>
+
+<div colorDirective>
+    这是一个指令div
+</div>
+
+
+
+<div colorDirective [ccDirective]='color'>
+    带参数的指令
+</div>
+
+<button (click)='changeColor("red")'>
+    改变颜色(红色)
+</button>
+
+<button (click)='changeColor("blue")'>
+    改变颜射(蓝色)
+</button>
+
+<app-valid-form colorDirective [ccDirective]='color' #appValidChild></app-valid-form>
+
+<button (click)='getChildEvent()'>获取子组件实例</button>
