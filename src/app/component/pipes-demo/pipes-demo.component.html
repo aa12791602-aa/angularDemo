@@ -1,0 +1,27 @@
+<p>pipes-demo works!</p>
+<h1>
+    angular管道
+</h1>
+
+<h3>date管道</h3>
+<div>{{pipeDate | date:'y-MM-dd hh:mm:ss'}}</div>
+<h3>json格式化 管道 </h3>
+<div>{{pipeJsonData | json}}</div>
+<h3>decimalg小数处理管道</h3>
+<div>
+    {{pipeDecimalData | number : '3.1-2'}}
+    <br />
+    {{pipeDecimalData2 | number : '1.2-3' | decimalLinkPipe}}
+</div>
+<h3>自定义 管道 </h3>
+<div>
+    {{PSex | sexPipe}}
+</div>
+<button (click)='changeSex()'>
+    改变性别
+</button>
+<h3>自定义非纯管道 </h3>
+<div>
+    {{purePipeData | pureDataTransform}}
+</div>
+<button (click)='changePurePipeData()'>改变 非纯管道数据</button>

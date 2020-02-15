@@ -1,0 +1,91 @@
+<p>{{userName}}</p>
+<div [attr.name]='address'>
+    {{address}}
+</div>
+<img [src]='imagePath' />
+<div>
+    <h1>angular 插值</h1>
+    <div>
+        {{funcObject.getName()}}
+    </div>
+
+    <div innerHtml="{{innerHtml}}">
+
+    </div>
+    <div class='fontBlue' [class]='dynamicClass'>
+        这是一个测试文本 被组件控制字体颜色
+    </div>
+
+    <div [class.blueFont]='isBlueFont' class='redFont'>
+        这是一个测试文本
+    </div>
+    <h1>angular事件</h1>
+    <button (click)='clickAlert($event)'>点击触发弹出事件</button>
+    <input type="text" placeholder='请输入数据' (input)='onInputEvent($event)' />
+    <select (change)='onChangeEvent($event)'>
+        <option value="0">山东</option>
+        <option value="1">北京</option>
+        <option value="2">上海</option>
+    </select>
+    <h1>angular双向数据绑定</h1>
+    <div>
+        <input type='tel' [(ngModel)]='userTel' placeholder="请输入手机号" value=''>
+        <input type='tel' bindon-ngModel='userTel' placeholder="请输入手机号" value=''>
+        <button (click)='showUserTel()'>显示双向绑定数据</button>
+        <button (click)='changeUserTel()'>改变双向绑定数据</button>
+        <br />
+
+    </div>
+    <div>
+        <br />
+        <br />
+        <input type='text' [ngModel]='ngModuleP1' (ngModelChange)='ngModuleListener($event)' />
+    </div>
+    <h1>angular中的指令</h1>
+    <h2>ngCLass</h2>
+    <div [ngClass]='getClasses()'>
+        这是被ngCLasS控制的文本
+    </div>
+    <h2>ngStyle</h2>
+    <div [ngStyle]='ngStyleData'>
+        这是被ngStyle控制的样式
+    </div>
+    <div *ngIf="ngIfBoolea">这是一个被*ngIf控制的数值</div>
+    <span [ngSwitch]='ngSwitchValue'>
+        <span *ngSwitchCase='ngSwitchData1'>比尔盖茨(data1)</span>
+        <span *ngSwitchCase='ngSwitchData2'>拉里艾力绅(data2)</span>
+        <span *ngSwitchCase='ngSwitchData3'>码云</span>
+        <span *ngSwitchDefault>扎克伯格</span>
+    </span>
+    <ul >
+        <li *ngFor="let data of ngForArray;let i=index">第{{i}}名:{{data}}</li>
+    </ul>
+    <h1>ngForm表单Demo</h1>
+    <form #ngContactForm='ngForm'>
+        <label for='ngName'>输入姓名</label>
+        <input name='ngName' type="text" [(ngModel)]='ngFormUserName'/>
+        <br/>
+        <label for='ngAge'>输入年龄</label>
+        <input name='ngAge' type="text" [(ngModel)]='ngFormUserAge' required>
+        <button type="button" (click)='getFormData()'>点击获取Form数据</button>
+        <div>数据:{{ngContactForm.value.ngAge}}</div>
+        <div>表单状态:{{ngContactForm.valid}}</div>
+    </form>
+    <h1>ngModelGroup指令</h1>
+    <form #concatForm='ngForm'>
+        <fieldset ngModelGroup='nameGroup' #nameGroup='ngModelGroup'>
+            <label for='firstName' >姓:</label>
+            <input type="text" name='firstName' [(ngModel)]='ngMGConcatData.user.firstName'/>
+            <label for='lastName' >名字:</label>
+            <input type="text" name='lastName' [(ngModel)]='ngMGConcatData.user.lastName'>
+        </fieldset>
+        <fieldset ngModelGroup='addressGroup' #addressGroup='ngModelGroup'>
+            <label for='province' >省:</label>
+            <input type="text" name='province' [(ngModel)]='ngMGConcatData.address.province'/>
+            <label for='city' >市区:</label>
+            <input type="text" name='city' [(ngModel)]='ngMGConcatData.address.city'/>
+        </fieldset>
+        <button type="button" (click)='getNameFroupData(concatForm.value)'>点击获取formdata</button>
+        <div>{{concatForm.value.nameGroup}}</div>
+    </form>
+</div>

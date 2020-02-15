@@ -1,0 +1,22 @@
+<div>
+    <h1>验证表单</h1>
+    <form [formGroup]='customForm' >
+        <div>
+            <label for='loginAccount' >用户名</label>
+            <input name='loginAccount' formControlName='loginAccount' type="text" placeholder="请输入用户名" />
+            <label style='color:red;margin-left:10px' *ngIf='customForm.get("loginAccount").dirty && customForm.get("loginAccount").errors'>
+                {{customForm.get('loginAccount').errors.data.errorMsg}}
+            </label>
+
+        </div>
+        <div>
+            <label for='loginPwd'>密码</label>
+            <input type="password" name='loginPwd'  formControlName='loginPwd' placeholder="请输入密码" />
+            <label style='color:red;margin-left:10px' *ngIf='customForm.get("loginPwd").dirty && customForm.get("loginPwd").errors'>
+                {{customForm.get('loginPwd').errors.data.errorMsg}}
+            </label>
+        </div>
+        <button (click)='doLogin(customForm)'>登陆</button>
+        <div>{{customForm}}</div>
+    </form>
+</div>
